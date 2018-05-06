@@ -1,0 +1,4 @@
+function ret=GC_count(seq)
+bases=basecount(seq);
+L=length(seq);
+ret=((bases.G)+(bases.C))/L;
