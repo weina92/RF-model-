@@ -1,0 +1,89 @@
+ load('linc12258.mat');
+%  load('mrna37545.mat');
+ for k=1:1
+    seq=linc12258{k,1};
+    m=length(seq);
+    three=round(m/3);
+
+    XX=zeros(4,1);
+    YY=zeros(4,1);
+    ZZ=zeros(4,1);
+    B=zeros(4,m);
+            for j=1:m;
+            if seq(j)=='A';
+                B(1,j)=1;
+                 if (mod(j,3)==0) 
+                        XX(1,1)=XX(1,1)+1;
+                 else if (mod(j,3)==1) 
+                        YY(1,1)=YY(1,1)+1;
+                     else 
+                        ZZ(1,1)=ZZ(1,1)+1;
+                     end
+                 end
+            else B(1,j)=0;
+            end
+            end
+            for j=1:m;
+            if seq(j)=='T';
+                B(2,j)=1;
+                  if (mod(j,3)==0) 
+                        XX(2,1)=XX(2,1)+1;
+                 else if (mod(j,3)==1) 
+                        YY(2,1)=YY(2,1)+1;
+                     else 
+                        ZZ(2,1)=ZZ(2,1)+1;
+                     end
+                 end
+            else B(2,j)=0;
+            end
+            end
+            for j=1:m;
+            if seq(j)=='G';
+                B(3,j)=1;
+                if (mod(j,3)==0) 
+                        XX(3,1)=XX(3,1)+1;
+                 else if (mod(j,3)==1) 
+                        YY(3,1)=YY(3,1)+1;
+                     else 
+                        ZZ(3,1)=ZZ(3,1)+1;
+                     end
+                 end
+            else B(3,j)=0;
+            end
+            end
+            for j=1:m;
+            if seq(j)=='C';
+                B(4,j)=1;
+                if (mod(j,3)==0) 
+                        XX(4,1)=XX(4,1)+1;
+                 else if (mod(j,3)==1) 
+                        YY(4,1)=YY(4,1)+1;
+                     else 
+                        ZZ(4,1)=ZZ(4,1)+1;
+                     end
+                 end
+            else B(4,j)=0;
+            end
+            end
+        Y=zeros(4,m); 
+        Y(1,:)=fft(B(1,:));
+        Y(2,:)=fft(B(2,:));
+        Y(3,:)=fft(B(3,:));
+        Y(4,:)=fft(B(4,:));
+        D=zeros(1,m);
+        D=abs(Y(1,:).^2)+abs(Y(2,:).^2)+abs(Y(3,:).^2)+abs(Y(4,:).^2);
+        value=max(D(1,(three-10):(three+10)));
+        average=sum(D(1,2:end))*1.0/m;
+        result=value*1.0/average;
+        rate(k)= result;
+end
+    
+% rate = rate';
+
+% plot(t,result(1,:),'b')
+t=1:m;
+plot(t,D,'b')
+xlabel('position');
+ylabel('power stpectum');
+axis([0,m+10,0,2*10^4]);
+% axis([0,1400,0,2*10^4]);
