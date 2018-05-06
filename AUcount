@@ -1,0 +1,10 @@
+load('anti9918.mat');
+rate=[];
+for i=1:length(anti9918)
+    seq=anti9918{i,1};
+    bases=basecount(seq);
+    L=length(seq);
+    ret=((bases.A)+(bases.T))/L;
+    rate(i)=ret;
+end
+rate = rate';
