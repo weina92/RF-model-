@@ -1,0 +1,27 @@
+load('anti9918.mat');
+row_number = length(anti9918);
+
+result_list= [];
+
+for i=1:row_number
+    
+    sequence =anti9918{i};
+    
+    seq_len = length(sequence);
+    
+    select_seq = sequence(seq_len-100:seq_len);
+    
+    result1 =  strfind(select_seq,'ATTAAA');
+    
+    result2 = strfind(select_seq,'AATAAA');
+    
+    result = length(result1) + length(result2);
+    
+    if result > 0
+        result_list(i)=1;
+    else
+        result_list(i)=0;
+    end  
+end
+
+rate = result_list'; 
