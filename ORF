@@ -1,0 +1,277 @@
+load('anti9918.mat');
+ rate=[];
+ for q=1:length(anti9918)
+     s=anti9918{q,1};
+     m=length(s);
+     q1='ATG';
+     z1='TAA';
+     z2='TAG';
+     z3='TGA';
+
+if mod(m,3)==0;
+    k1=0;
+    k2=0;
+    o1=0;
+    o2=0;
+    t1=0;
+    t2=0;
+  for i=1:3:m-2
+   if s(i:i+2)==q1
+       k1=k1+1;
+       q1index(k1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       k2=k2+1;
+       z1index(k2)=i+2;
+   end
+  end
+  
+  for i=2:3:m-4
+   if s(i:i+2)==q1
+       o1=o1+1;
+       q2index(o1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       o2=o2+1;
+       z2index(o2)=i+2;
+   end
+  end
+  
+   for i=3:3:m-3
+   if s(i:i+2)==q1
+       t1=t1+1;
+       q3index(t1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       t2=t2+1;
+       z3index(t2)=i+2;
+   end
+   end
+     if k1==0
+       q1index(1)=0;
+   end
+   if k2==0
+       z1index(1)=0;
+   end
+   if o1==0
+       q2index(1)=0;
+   end
+   if o2==0
+       z2index(1)=0;
+   end
+   if t1==0
+       q3index(1)=0;
+   end
+   if t2==0
+       z3index(1)=0;
+   end
+end
+
+
+
+
+if mod(m,3)==1;
+    k1=0;
+    k2=0;
+    o1=0;
+    o2=0;
+    t1=0;
+    t2=0;
+  for i=1:3:m-3
+   if s(i:i+2)==q1
+       k1=k1+1;
+       q1index(k1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       k2=k2+1;
+       z1index(k2)=i+2;
+   end
+  end
+  
+  for i=2:3:m-2
+   if s(i:i+2)==q1
+       o1=o1+1;
+       q2index(o1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       o2=o2+1;
+       z2index(o2)=i+2;
+   end
+  end
+  
+   for i=3:3:m-4
+   if s(i:i+2)==q1
+       t1=t1+1;
+       q3index(t1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       t2=t2+1;
+       z3index(t2)=i+2;
+   end
+   end
+     if k1==0
+       q1index(1)=0;
+   end
+   if k2==0
+       z1index(1)=0;
+   end
+   if o1==0
+       q2index(1)=0;
+   end
+   if o2==0
+       z2index(1)=0;
+   end
+   if t1==0
+       q3index(1)=0;
+   end
+   if t2==0
+       z3index(1)=0;
+   end
+end
+
+
+
+
+if mod(m,3)==2;
+    k1=0;
+    k2=0;
+    o1=0;
+    o2=0;
+    t1=0;
+    t2=0;
+  for i=1:3:m-4
+   if s(i:i+2)==q1
+       k1=k1+1;
+       q1index(k1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       k2=k2+1;
+       z1index(k2)=i+2;
+   end
+  end
+  
+  for i=2:3:m-3
+   if s(i:i+2)==q1
+       o1=o1+1;
+       q2index(o1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       o2=o2+1;
+       z2index(o2)=i+2;
+   end
+  end
+  
+   for i=3:3:m-2
+   if s(i:i+2)==q1
+       t1=t1+1;
+       q3index(t1)=i;
+   end
+   if strcmpi(z1,s(i:i+2))==1||strcmpi(z2,s(i:i+2))==1||strcmpi(z3,s(i:i+2))==1
+       t2=t2+1;
+       z3index(t2)=i+2;
+   end
+   end
+   if k1==0
+       q1index(1)=0;
+   end
+   if k2==0
+       z1index(1)=0;
+   end
+   if o1==0
+       q2index(1)=0;
+   end
+   if o2==0
+       z2index(1)=0;
+   end
+   if t1==0
+       q3index(1)=0;
+   end
+   if t2==0
+       z3index(1)=0;
+   end
+end
+q1index;
+z1index;
+q2index;
+z2index;
+q3index;
+z3index;
+
+
+
+if ismember(0,q1index)==0&ismember(0,z1index)==0
+    k=0;
+    m1=length(q1index);
+    m2=length(z1index);
+    m=m1+m2;
+  T=[q1index,z1index];
+    Total=sort(T);
+    for i=1:m1
+        a=find(Total==q1index(i));
+        for j=(a+1):m
+            if (ismember(Total(j),z1index))==1
+                k=k+1;
+                Lorf1(k)=Total(j)-q1index(i)+1;
+                break
+            end
+        end
+    end
+    if k==0
+        Lorf1(1)=0;
+    end
+    else Lorf1(1)=0;
+end
+
+
+if ismember(0,q2index)==0&ismember(0,z2index)==0
+    k=0;
+    m1=length(q2index);
+    m2=length(z2index);
+    m=m1+m2;
+    T=[q2index,z2index];
+    Total=sort(T);
+    for i=1:m1
+        a=find(Total==q2index(i));
+        for j=(a+1):m
+            if (ismember(Total(j),z2index))==1
+                k=k+1;
+                Lorf2(k)=Total(j)-q2index(i)+1;
+                break
+            end
+        end
+    end
+    if k==0
+        Lorf2(1)=0;
+    end
+    else Lorf2(1)=0;
+end
+
+
+if ismember(0,q3index)==0&ismember(0,z3index)==0
+    k=0;
+    m1=length(q3index);
+    m2=length(z3index);
+    m=m1+m2;
+    T=[q3index,z3index];
+    Total=sort(T);
+    for i=1:m1
+        a=find(Total==q3index(i));
+        for j=(a+1):m
+            if (ismember(Total(j),z3index))==1
+                k=k+1;
+                Lorf3(k)=Total(j)-q3index(i)+1;
+                break
+            end
+        end
+    end
+    if k==0
+        Lorf3(1)=0;
+    end
+else Lorf3(1)=0;
+    
+end
+  Lorf=[Lorf1,Lorf2,Lorf3];
+   MLorf=max(Lorf);
+   rate(q)=MLorf;
+end
+rate = rate';
